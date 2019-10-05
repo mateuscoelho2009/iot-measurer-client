@@ -8,14 +8,14 @@ import Page404 from './pages/Page404';
 
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Measurements from './pages/Measurements';
+import Measurement from './pages/Measurement';
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route path="/" exact={true} component={App} />
 
-            <Route path="/measurements/:id" component={Measurements} />
+            <Route path="/measurement/:id" component={Measurement} />
 
             <Route path='*' component={Page404} />
         </Switch>

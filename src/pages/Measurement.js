@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Measurements(props) {
+function Measurement(props) {
     const {
         match: {
             params: {
@@ -16,4 +16,4 @@ function Measurements(props) {
     );
 }
 
-export default Measurements;
+export default Measurement;
