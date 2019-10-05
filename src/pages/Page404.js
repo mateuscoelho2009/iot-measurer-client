@@ -13,8 +13,8 @@ const useNonExistingPageStyle = makeStyles((theme) => ({
     textAlign: 'center',
   },
   alertIcon: {
-    width: '20vh',
-    height: '20vh',
+    width: '40vh',
+    height: '40vh',
     marginTop: '5vh',
     color: '#77f',
   },
@@ -42,12 +42,7 @@ function Page404() {
       </Typography>
       <br />
       <Link to="/" className={classes.link}>
-        <Typography
-          variant="body1"
-          className={classes.link}
-        >
-          Please follow to the main page.
-        </Typography>
+        Please follow to the main page.
       </Link>
     </div>
   );

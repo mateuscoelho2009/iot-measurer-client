@@ -1,23 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import TouchAppIcon from '@material-ui/icons/TouchApp';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <TouchAppIcon className="App-logo" />
+        <Typography
+          variant="h2"
+          color="primary"
         >
-          Learn React
-        </a>
+          Welcome to our platform!
+        </Typography>
+        <br />
+        <Link
+          className="App-link"
+          to="/measurements"
+        >
+          <TrendingUpIcon className="Trending-icon" />
+          See the measurements
+        </Link>
       </header>
     </div>
   );
