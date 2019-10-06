@@ -1,12 +1,10 @@
 import React from 'react';
-import { UserConsumer } from '../contexts/UserContext';
+import { connect } from 'react-redux';
 
-function UserMeasurements() {
-    return (
-        <UserConsumer>
-            {({ userId }) => <h1>Welcome {userId}!</h1>}
-        </UserConsumer>
-    )
-}
+const UserMeasurements = ({ userId }) => (<h1>Welcome {userId}!</h1>);
 
-export default UserMeasurements;
+const mapStateToProps = store => ({
+    userId: store.userState.userId,
+});
+
+export default connect(mapStateToProps) (UserMeasurements);

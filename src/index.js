@@ -10,18 +10,22 @@ import User from './pages/User';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Measurement from './pages/Measurement';
+import { Provider } from 'react-redux';
+import { Store } from './store';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Switch>
-            <Route path="/" exact={true} component={App} />
+        <Provider store={Store}>
+            <Switch>
+                <Route path="/" exact={true} component={App} />
 
-            <Route path="/user" exact={true} component={User} />
+                <Route path="/user" exact={true} component={User} />
 
-            <Route path="/user/measurement/:id" component={Measurement} />
+                <Route path="/user/measurement/:id" component={Measurement} />
 
-            <Route path='*' component={Page404} />
-        </Switch>
+                <Route path='*' component={Page404} />
+            </Switch>
+        </Provider>
     </ BrowserRouter>
     , document.getElementById('root'));
 
