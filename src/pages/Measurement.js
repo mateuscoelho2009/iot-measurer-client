@@ -1,6 +1,6 @@
 import React from 'react';
 import UserMenu from '../components/UserMenu';
-import { UserProvider } from '../contexts/UserContext';
+import { connect } from 'react-redux';
 
 function Measurement(props) {
     const {
@@ -9,14 +9,19 @@ function Measurement(props) {
                 id,
             },
         },
+        userId,
     } = props;
 
     return (
-        <UserProvider>
-            {id}
+        <>
             <UserMenu />
-        </UserProvider>
+            Measurement {id}
+        </>
     );
 }
 
-export default Measurement;
+const mapStateToProps = store => ({
+    userId: store.userState.userId,
+});
+
+export default connect(mapStateToProps)(Measurement);
