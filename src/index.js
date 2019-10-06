@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import Page404 from './pages/Page404';
 import User from './pages/User';
+import Wrapper from './Wrapper';
 
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -16,15 +17,17 @@ import { Store } from './store';
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={Store}>
-            <Switch>
-                <Route path="/" exact={true} component={App} />
+            <Wrapper>
+                <Switch>
+                    <Route path="/" exact={true} component={App} />
 
-                <Route path="/user" exact={true} component={User} />
+                    <Route path="/user" exact={true} component={User} />
 
-                <Route path="/user/measurement/:id" component={Measurement} />
+                    <Route path="/user/measurement/:id" component={Measurement} />
 
-                <Route path='*' component={Page404} />
-            </Switch>
+                    <Route path='*' component={Page404} />
+                </Switch>
+            </Wrapper>
         </Provider>
     </ BrowserRouter>
     , document.getElementById('root'));
