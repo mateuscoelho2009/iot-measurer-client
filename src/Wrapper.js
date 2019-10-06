@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import { FirebaseConfig } from './private/firebase-config';
 import PhonelinkRingIcon from '@material-ui/icons/PhonelinkRing';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
@@ -15,12 +16,28 @@ firebase.initializeApp(FirebaseConfig);
 class Wrapper extends React.Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      const userId = user.uid;
-      const username = user.displayName;
-      
-      if (userId) {
-        this.props.logIn(userId, username);
-      }
+        if (!user) {
+            return;
+        }
+
+        const userId = user.uid;
+        const username = user.displayName;
+        
+        if (userId) {
+            firebase.firestore().collection(userId).get()
+                .then((snapshot) => {
+                    const measurements = [];
+                    snapshot.forEach((doc) => {
+                        console.log(doc.id, '=>', doc.data());
+                        measurements.push({
+                            name: doc.id,
+                            data: doc.data(),
+                        });
+                    });
+    
+                    this.props.logIn(userId, username, measurements);
+                });
+        }
     });
   }
   
@@ -41,12 +58,12 @@ class Wrapper extends React.Component {
     return (
       <div className="app">
         <div className="app__header">
-          <div className="app__brand">
+          <Link to='/' className="app__brand">
             <PhonelinkRingIcon className="app__icon" />
             <h2>
                 Smart Valve
             </h2>
-          </div>
+          </Link>
           <div className="app__brand">
             <p>
                 {username}

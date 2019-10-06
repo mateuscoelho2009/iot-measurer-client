@@ -1,10 +1,22 @@
 import React from 'react';
+import {
+  withRouter,
+} from 'react-router-dom';
+import { connect } from 'react-redux';
 import UserMeasurements from '../components/UserMeasurements';
 
-function User() {
+function User({ history, username }) {
+    if (!username) {
+        history.push('/');
+    }
+
     return (
         <UserMeasurements />
     )
 }
 
-export default User;
+const mapStateToProps = store => ({
+    username: store.userState.username,
+});
+
+export default connect(mapStateToProps) (withRouter(User));

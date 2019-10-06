@@ -1,6 +1,7 @@
 import React from 'react';
 import UserMenu from '../components/UserMenu';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 function Measurement(props) {
     const {
@@ -9,8 +10,13 @@ function Measurement(props) {
                 id,
             },
         },
-        userId,
+        username,
+        history,
     } = props;
+
+    if (!username) {
+        history.push('/');
+    }
 
     return (
         <>
@@ -21,7 +27,7 @@ function Measurement(props) {
 }
 
 const mapStateToProps = store => ({
-    userId: store.userState.userId,
+    username: store.userState.username,
 });
 
-export default connect(mapStateToProps)(Measurement);
+export default withRouter(connect(mapStateToProps)(Measurement));

@@ -12,6 +12,8 @@
   .app__brand {
     display: flex;
     align-items: center;
+    color: #77f;
+    text-decoration: none;
   }
   .app__icon {
     padding: 8px;
