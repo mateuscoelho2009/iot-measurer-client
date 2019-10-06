@@ -5,6 +5,7 @@ import './index.css';
 // Pages
 import App from './App';
 import Page404 from './pages/Page404';
+import User from './pages/User';
 
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -15,7 +16,9 @@ ReactDOM.render(
         <Switch>
             <Route path="/" exact={true} component={App} />
 
-            <Route path="/measurement/:id" component={Measurement} />
+            <Route path="/user" exact={true} component={User} />
+
+            <Route path="/user/measurement/:id" component={Measurement} />
 
             <Route path='*' component={Page404} />
         </Switch>

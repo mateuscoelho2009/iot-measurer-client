@@ -19,7 +19,7 @@ function App() {
         <br />
         <Link
           className="App-link"
-          to="/measurements"
+          to="/user"
         >
           <TrendingUpIcon className="Trending-icon" />
           See the measurements

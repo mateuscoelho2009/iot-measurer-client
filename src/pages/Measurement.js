@@ -1,4 +1,6 @@
 import React from 'react';
+import UserMenu from '../components/UserMenu';
+import { UserProvider } from '../contexts/UserContext';
 
 function Measurement(props) {
     const {
@@ -10,9 +12,10 @@ function Measurement(props) {
     } = props;
 
     return (
-        <>
+        <UserProvider>
             {id}
-        </>
+            <UserMenu />
+        </UserProvider>
     );
 }
 
