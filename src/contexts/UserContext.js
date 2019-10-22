@@ -17,8 +17,8 @@ export class UserProvider extends React.Component {
     }
 
     state = {
-        userId: '1',
-        username: 'Mateus',
+        userId: '',
+        username: '',
         measurements: [],
         updateUser: this.updateUser,
     }

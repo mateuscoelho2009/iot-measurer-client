@@ -28,10 +28,10 @@ class Wrapper extends React.Component {
                 .then((snapshot) => {
                     const measurements = [];
                     snapshot.forEach((doc) => {
-                        console.log(doc.id, '=>', doc.data());
                         measurements.push({
-                            name: doc.id,
-                            data: doc.data(),
+                            id: doc.id,
+                            samples: [],
+                            valveStates: [],
                         });
                     });
     
